@@ -1,36 +1,46 @@
 #include <iostream>
+#include <string>
 
 using namespace::std;
 
-struct domition
-{
-    string full_name;
-    double money;
-};
-
 int main()
 {
-    int num_dom=0;
-    cout<<"enter the number of domitions: ";
-    cin>>num_dom;
+    int num_vowel_start = 0;
+    int num_consonant_start = 0;
+    int num_neither_start = 0;
+    char words[30];
+    cout<<"Enter words(q to quit): ";
+    cin>>words;
     cin.get();
-    domition *doms = new domition[num_dom];
-    for (int i = 0; i < num_dom ;i++)
+    while(words[0]!='q')
     {
-        cout<<"enter the name of domition: ";
-        getline(cin,doms[i].full_name);
-        cout<<"enter the money of domition: ";
-        cin>>doms[i].money;
+        //cout<<words<<endl;
+        switch (words[0])
+        {
+            case 'a':num_vowel_start +=1;break;
+            case 'e':num_vowel_start +=1;break;
+            case 'i':num_vowel_start +=1;break;
+            case 'o':num_vowel_start +=1;break;
+            case 'u':num_vowel_start +=1;break;
+            default:
+            {
+                if (isalpha(words[0]))
+                {
+                    num_consonant_start +=1 ;
+                    break;
+                }
+                else
+                {
+                    num_neither_start += 1;
+                    break;
+                }
+            }
+        }
+        cin>>words;
         cin.get();
     }
-    cout<<"this is list or grand patrons:"<<endl;
-    for (int i = 0; i < num_dom ;i++)
-    {
-        if (doms[i].money > 10000)
-        {
-            cout<<doms[i].full_name<<endl;
-        }
-    }
-    delete []doms;
+    cout<<num_vowel_start<<"words begin with vowels."<<endl;
+    cout<<num_consonant_start<<"words begin with consonant."<<endl;
+    cout<<num_neither_start<<"words begin with neither."<<endl;
 }
 
