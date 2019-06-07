@@ -3,6 +3,8 @@
         "iostream": "cpp",
         "array": "cpp",
         "ostream": "cpp",
-        "istream": "cpp"
-    }
+        "istream": "cpp",
+        "vector": "cpp"
+    },
+    "python.pythonPath": "/usr/bin/python"
 }
